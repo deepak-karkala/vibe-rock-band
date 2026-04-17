@@ -80,6 +80,10 @@ export function useBandSession(audioRef: React.RefObject<HTMLAudioElement | null
   }, [audioRef, setAudioLevel]);
 
   useEffect(() => {
+    if (!selectedTheme) {
+      return;
+    }
+
     const audio = audioRef.current;
     if (!audio) {
       return;
@@ -124,6 +128,7 @@ export function useBandSession(audioRef: React.RefObject<HTMLAudioElement | null
     };
   }, [
     audioRef,
+    selectedTheme,
     setAudioLevel,
     setError,
     setIsPlaying,
