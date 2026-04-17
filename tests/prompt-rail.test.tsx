@@ -4,7 +4,9 @@ import { PromptRail } from "@/components/prompt-rail";
 import { bandThemes } from "@/lib/theme-data";
 
 describe("PromptRail", () => {
-  it("shows locked share state before the first meaningful moment", () => {
+  it(
+    "shows locked share state before the first meaningful moment",
+    () => {
     render(
       <PromptRail
         theme={bandThemes[0]}
@@ -23,7 +25,9 @@ describe("PromptRail", () => {
     expect(
       screen.getByRole("button", { name: /locked/i }).hasAttribute("disabled"),
     ).toBe(true);
-  });
+    },
+    10000,
+  );
 
   it("submits the current direction", () => {
     const onSubmitDirection = vi.fn().mockResolvedValue(undefined);

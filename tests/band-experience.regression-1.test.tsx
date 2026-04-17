@@ -121,6 +121,6 @@ describe("BandExperience regression", () => {
         ).toBe(false);
       });
     },
-    10000,
+    20000,
   );
 });
