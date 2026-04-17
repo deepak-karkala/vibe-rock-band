@@ -2,10 +2,10 @@
 
 An experimental web app where the user directs a virtual AI rock band and the band responds both visually and musically.
 
-![Status](https://img.shields.io/badge/status-planning-blue)
-![Phase](https://img.shields.io/badge/layer-1%20in%20progress-orange)
+![Status](https://img.shields.io/badge/status-implemented-green)
+![Phase](https://img.shields.io/badge/layer-1%20playable-brightgreen)
 ![Type](https://img.shields.io/badge/type-portfolio%20project-purple)
-![Frontend](https://img.shields.io/badge/frontend-Next.js%2014-black)
+![Frontend](https://img.shields.io/badge/frontend-Next.js%2016-black)
 ![3D](https://img.shields.io/badge/3D-Three.js-111827)
 ![State](https://img.shields.io/badge/state-Zustand-4b5563)
 ![Audio](https://img.shields.io/badge/audio-Web%20Audio%20API-0f766e)
@@ -21,9 +21,9 @@ The point of this project is not just to generate music. It is to create a live-
 ## Status
 
 Current status:
-- Planning completed across product, design, and engineering review passes
-- `Layer 1` scope is defined and reduced to the smallest real demo
-- Implementation has not started yet in this repo
+- `Layer 1` is implemented as a playable local app
+- The full core loop works: theme selection, typed direction, AI-directed clip generation, stage reaction, and recap export
+- API routes, rate limiting, and a regression-tested first playback payoff are in place
 
 Current Layer 1 target:
 - full-screen band theme picker
@@ -53,22 +53,16 @@ Explicitly deferred from Layer 1:
 
 ## Demo
 
-Demo status: not live yet.
+Demo status:
+- playable locally via `npm run dev`
+- not deployed yet
 
-Planned demo artifacts:
-- live hosted Layer 1 web app
-- short screen recording showing:
-  - theme selection
-  - first typed direction
-  - band reaction
-  - music change
-  - recap card export
-- architecture screenshots / diagrams for portfolio write-up
-
-Demo placeholders:
-- Live app: `TBD`
-- Video demo: `TBD`
-- Portfolio case study: `TBD`
+Current local flow:
+- choose a band theme
+- send a typed direction
+- wait for `/api/music/direct` and `/api/music/generate`
+- hear the generated clip and watch the stage react
+- export a recap card once playback starts
 
 ## Product Summary
 
@@ -139,15 +133,15 @@ It is designed to show:
 
 ### Layer 1: Shippable Core Loop
 
-- [ ] Build full-screen theme picker
-- [ ] Build typed prompt flow
-- [ ] Implement `/api/music/direct`
-- [ ] Implement `/api/music/generate`
-- [ ] Play MP3 via `<audio>`
-- [ ] Drive stage reactivity with `AnalyserNode`
-- [ ] Add stage-anchored speech bubbles
-- [ ] Add recap card generation and PNG export
-- [ ] Add rate limiting and failure handling
+- [x] Build full-screen theme picker
+- [x] Build typed prompt flow
+- [x] Implement `/api/music/direct`
+- [x] Implement `/api/music/generate`
+- [x] Play MP3 via `<audio>`
+- [x] Drive stage reactivity with `AnalyserNode`
+- [x] Add stage-anchored speech bubbles
+- [x] Add recap card generation and PNG export
+- [x] Add rate limiting and failure handling
 - [ ] Deploy Layer 1 demo
 
 ### Layer 2: Real-Time Streaming and Polish
